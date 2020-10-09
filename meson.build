@@ -2,6 +2,8 @@ project('nauty', 'c',
   version : '2.7.1',
   default_options : ['warning_level=3'])
 
+pkg = import('pkgconfig')
+
 lib = library('nauty',
   'gtnauty.c',
   'gtools.c',
@@ -22,6 +24,8 @@ lib = library('nauty',
   'traces.c',
   version : '2.7.1',
   install : true)
+
+pkg.generate(lib)
 
 executable('dreadnaut',
   'dreadnaut.c',
